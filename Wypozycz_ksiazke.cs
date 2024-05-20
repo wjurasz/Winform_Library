@@ -24,7 +24,7 @@ namespace projekt_szkolenie_techiczne_1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Wypozycz_ksiazke_Load(object sender, EventArgs e)
@@ -37,6 +37,11 @@ namespace projekt_szkolenie_techiczne_1
 
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
