@@ -32,9 +32,9 @@
             panel1 = new Panel();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            userLogin = new TextBox();
             label3 = new Label();
-            textBox2 = new TextBox();
+            userPassword = new TextBox();
             button1 = new Button();
             SuspendLayout();
             // 
@@ -70,13 +70,14 @@
             label2.Text = "LOGIN";
             label2.Click += label2_Click;
             // 
-            // textBox1
+            // userLogin
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(524, 205);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(194, 27);
-            textBox1.TabIndex = 3;
+            userLogin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            userLogin.Location = new Point(524, 205);
+            userLogin.Name = "userLogin";
+            userLogin.Size = new Size(194, 27);
+            userLogin.TabIndex = 3;
+            userLogin.TextChanged += textBox1_TextChanged;
             // 
             // label3
             // 
@@ -90,23 +91,22 @@
             label3.Text = "HASŁO";
             label3.Click += label3_Click;
             // 
-            // textBox2
+            // userPassword
             // 
-            textBox2.Location = new Point(524, 297);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(194, 27);
-            textBox2.TabIndex = 5;
+            userPassword.Location = new Point(524, 297);
+            userPassword.Name = "userPassword";
+            userPassword.Size = new Size(194, 27);
+            userPassword.TabIndex = 5;
             // 
             // button1
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.Font = new Font("Times New Roman", 10F);
-            button1.Location = new Point(537, 351);
+            button1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            button1.Location = new Point(524, 349);
             button1.Name = "button1";
-            button1.Size = new Size(167, 27);
-            button1.TabIndex = 6;
-            button1.Text = "ZALOGUJ";
-            button1.UseVisualStyleBackColor = true;
+            button1.Size = new Size(194, 55);
+            button1.TabIndex = 0;
+            button1.Text = "Zaloguj";
+            button1.Click += button1_Click;
             // 
             // Login
             // 
@@ -114,9 +114,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1061, 533);
             Controls.Add(button1);
-            Controls.Add(textBox2);
+            Controls.Add(userPassword);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(userLogin);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -134,9 +134,9 @@
         private Panel panel1;
         public Label label1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox userLogin;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox userPassword;
         private Button button1;
     }
 }

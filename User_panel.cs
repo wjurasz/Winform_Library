@@ -16,5 +16,10 @@ namespace projekt_szkolenie_techiczne_1
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
