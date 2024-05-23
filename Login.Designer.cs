@@ -122,7 +122,7 @@
             Controls.Add(panel1);
             Cursor = Cursors.Hand;
             Name = "Login";
-            Text = "Form1";
+            Text = "Logowanie";
             Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();

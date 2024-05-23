@@ -8,6 +8,7 @@ namespace projekt_szkolenie_techiczne_1
             InitializeComponent();
         }
 
+
         private void Login_Load(object sender, EventArgs e)
         {
 
@@ -38,14 +39,11 @@ namespace projekt_szkolenie_techiczne_1
         {
             LibraryDAO libraryDAO = new LibraryDAO();
 
-
-            //usersBindingSource.DataSource = libraryDAO.CheckUser(userLogin.Text, userPassword.Text);
             usersBindingSource.DataSource = libraryDAO;
             if (libraryDAO.CheckUser(userLogin.Text, userPassword.Text))
             {
                 MessageBox.Show("Zalogowano pomyœlnie!");
-                User_panel user_Panel = new User_panel();
-                user_Panel.Show();
+
                 this.Hide();
 
             }

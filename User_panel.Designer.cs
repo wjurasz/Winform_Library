@@ -66,6 +66,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(787, 258);
             dataGridView1.TabIndex = 3;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // label2
             // 
@@ -93,11 +94,11 @@
             button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 238);
             button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(555, 84);
+            button1.Location = new Point(523, 95);
             button1.Name = "button1";
-            button1.Size = new Size(218, 47);
+            button1.Size = new Size(286, 67);
             button1.TabIndex = 6;
-            button1.Text = "Wypożycz książkę";
+            button1.Text = "Wyświetl wypożyczone książki";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
