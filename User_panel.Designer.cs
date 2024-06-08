@@ -34,6 +34,7 @@
             label2 = new Label();
             label3 = new Label();
             button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 534);
+            panel1.Size = new Size(250, 553);
             panel1.TabIndex = 1;
             // 
             // label1
@@ -67,6 +68,7 @@
             dataGridView1.Size = new Size(787, 258);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label2
             // 
@@ -94,7 +96,7 @@
             button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 238);
             button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(523, 95);
+            button1.Location = new Point(273, 95);
             button1.Name = "button1";
             button1.Size = new Size(286, 67);
             button1.TabIndex = 6;
@@ -102,11 +104,26 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.Turquoise;
+            button2.Cursor = Cursors.Hand;
+            button2.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            button2.ForeColor = SystemColors.ActiveCaptionText;
+            button2.Location = new Point(774, 95);
+            button2.Name = "button2";
+            button2.Size = new Size(286, 67);
+            button2.TabIndex = 7;
+            button2.Text = "Wypożycz książkę";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // User_panel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1072, 534);
+            ClientSize = new Size(1072, 553);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -129,5 +146,6 @@
         private Label label2;
         private Label label3;
         private Button button1;
+        private Button button2;
     }
 }

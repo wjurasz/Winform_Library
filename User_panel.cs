@@ -38,5 +38,17 @@ namespace projekt_szkolenie_techiczne_1
         {
             Application.Exit(); // Zamknij całą aplikację
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Borrow_book borrow_book = new Borrow_book();
+            borrow_book.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

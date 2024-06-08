@@ -180,5 +180,47 @@ namespace projekt_szkolenie_techiczne_1
             connection.Close();
             return UserBooks;
         }
+
+        public List<JObject> GetAllBook()
+        {
+            List<JObject> Books = new List<JObject>();
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand();
+            command.CommandText = "SELECT BOOKID, TITLE, AUTHOR, YEAR, users_ID FROM " +
+                "borrowedbooks INNER JOIN books ON BORROWID = borrowedbooks_BORROWID";
+            command.Connection = connection;
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    JObject Book = new JObject();
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        Book.Add(reader.GetName(i).ToString(), reader.GetValue(i).ToString());
+                    }
+
+                    Books.Add(Book);
+                }
+            }
+
+            connection.Close();
+            return Books;
+        }
+
+        public void BorrowBook(int rowClicked)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand();
+            command.CommandText = "SELECT BOOKID, TITLE, AUTHOR, YEAR, users_ID FROM " +
+                "borrowedbooks INNER JOIN books ON BORROWID = borrowedbooks_BORROWID";
+            command.Connection = connection;
+        }
     }
 }
