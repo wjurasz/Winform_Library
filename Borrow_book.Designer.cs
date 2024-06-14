@@ -32,6 +32,8 @@
             allBooks = new DataGridView();
             label2 = new Label();
             button2 = new Button();
+            button1 = new Button();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)allBooks).BeginInit();
             SuspendLayout();
             // 
@@ -79,11 +81,34 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ActiveCaption;
+            button1.Location = new Point(966, 22);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 9;
+            button1.Text = "Zamknij";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = SystemColors.ActiveCaption;
+            button3.Location = new Point(273, 22);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 29);
+            button3.TabIndex = 10;
+            button3.Text = "Wstecz";
+            button3.UseVisualStyleBackColor = false;
+            // 
             // Borrow_book
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1072, 553);
+            Controls.Add(button3);
+            Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(allBooks);
@@ -101,5 +126,7 @@
         private DataGridView allBooks;
         private Label label2;
         private Button button2;
+        private Button button1;
+        private Button button3;
     }
 }

@@ -42,7 +42,7 @@ namespace projekt_szkolenie_techiczne_1
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Borrow_book borrow_book = new Borrow_book();
+            Borrow_book borrow_book = new Borrow_book(UserID);
             borrow_book.Show();
         }
 

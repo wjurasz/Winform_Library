@@ -95,6 +95,7 @@
             // 
             userPassword.Location = new Point(524, 297);
             userPassword.Name = "userPassword";
+            userPassword.PasswordChar = 'ඞ';
             userPassword.Size = new Size(194, 27);
             userPassword.TabIndex = 5;
             // 
