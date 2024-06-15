@@ -62,7 +62,7 @@ namespace projekt_szkolenie_techiczne_1
                     
                     libraryDAO.BorrowBook(bookID, UserID);
 
-                    MessageBox.Show($"{UserID}");
+                    
                     MessageBox.Show("Pomyślnie wypożyczono książkę!");
 
                     

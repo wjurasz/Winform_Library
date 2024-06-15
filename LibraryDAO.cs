@@ -131,7 +131,7 @@ namespace projekt_szkolenie_techiczne_1
             MySqlCommand insertCommand = new MySqlCommand();
             insertCommand.CommandText = "INSERT INTO borrowedbooks (BORROWDATE, RETURNDATE, user_ID, BOOKID) VALUES (@borrowDate, @returnDate, @userID, @bookID)";
             insertCommand.Parameters.AddWithValue("@borrowDate", DateTime.Now.ToString("yyyyMMdd"));
-            insertCommand.Parameters.AddWithValue("@returnDate", DateTime.Now.AddDays(14).ToString("yyyyMMdd")); // assuming a 14-day borrow period
+            insertCommand.Parameters.AddWithValue("@returnDate", DateTime.Now.AddDays(14).ToString("yyyyMMdd")); 
             insertCommand.Parameters.AddWithValue("@userID", UserID); 
             insertCommand.Parameters.AddWithValue("@bookID", bookID);
             insertCommand.Connection = connection;
