@@ -9,23 +9,27 @@ namespace projekt_szkolenie_techiczne_1
         BindingSource bookBindingSource = new BindingSource();
         LibraryDAO libraryDAO = new LibraryDAO();
         public int UserID;
-        public Borrow_book(int userID)
+        private User_panel userPanel; 
+
+        public Borrow_book(int userID, User_panel userPanelInstance)
         {
             InitializeComponent();
             this.UserID = userID;
+            this.userPanel = userPanelInstance; 
             this.FormClosed += new FormClosedEventHandler(Borrow_Book_FormClosed);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            User_panel userpanel = new User_panel(UserID);
-            userpanel.Show();
+            userPanel.Show(); 
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -33,7 +37,7 @@ namespace projekt_szkolenie_techiczne_1
 
         private void Borrow_Book_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit(); // Zamknij całą aplikację
+            Application.Exit(); 
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,17 +55,17 @@ namespace projekt_szkolenie_techiczne_1
 
                 if (isBorrowed)
                 {
-                    MessageBox.Show("This book is already borrowed.");
+                    MessageBox.Show("Ta książka jest już wypożyczona!.");
                 }
                 else
                 {
-                    // Call BorrowBook method
+                    
                     libraryDAO.BorrowBook(bookID, UserID);
 
                     MessageBox.Show($"{UserID}");
-                    MessageBox.Show("Book borrowed successfully!");
+                    MessageBox.Show("Pomyślnie wypożyczono książkę!");
 
-                    // Refresh book list
+                    
                     bookBindingSource.DataSource = libraryDAO.GetAllBook();
                     allBooks.DataSource = bookBindingSource;
                 }

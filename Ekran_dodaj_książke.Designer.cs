@@ -34,10 +34,8 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
-            textBox4 = new TextBox();
             button1 = new Button();
             SuspendLayout();
             // 
@@ -97,17 +95,6 @@
             label4.TabIndex = 6;
             label4.Text = "Rok wydania";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label5.Location = new Point(600, 360);
-            label5.Name = "label5";
-            label5.Size = new Size(48, 22);
-            label5.TabIndex = 7;
-            label5.Text = "Opis";
-            label5.Click += label5_Click;
-            // 
             // textBox2
             // 
             textBox2.Location = new Point(389, 208);
@@ -122,21 +109,15 @@
             textBox3.Size = new Size(491, 27);
             textBox3.TabIndex = 9;
             // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(389, 399);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(491, 27);
-            textBox4.TabIndex = 10;
-            // 
             // button1
             // 
+            button1.BackColor = SystemColors.ActiveCaption;
             button1.Location = new Point(578, 471);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 11;
             button1.Text = "DODAJ";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             // 
             // Ekran_dodaj_książke
             // 
@@ -144,10 +125,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1111, 584);
             Controls.Add(button1);
-            Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
-            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -168,10 +147,8 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private Label label5;
         private TextBox textBox2;
         private TextBox textBox3;
-        private TextBox textBox4;
         private Button button1;
     }
 }

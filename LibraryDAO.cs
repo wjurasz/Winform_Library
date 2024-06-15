@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace projekt_szkolenie_techiczne_1
         public int UserID { get; set; }
         string connectionString = "datasource=localhost; port=8889; username=root; password=root; database=library";
 
+        //sprawdzanie usera
         public bool CheckUser(string inputUserName, string inputPassword)
         {
             List<User> users = new List<User>();
@@ -40,9 +42,9 @@ namespace projekt_szkolenie_techiczne_1
                 if (u.password == inputPassword && u.userName == inputUserName)
                 {
                     connection.Close();
-                    UserID = u.ID; // Set the UserID property here
+                    UserID = u.ID; 
 
-                    // Create and show User_panel with the UserID
+                    
                     User_panel userPanel = new User_panel(UserID);
                     userPanel.Show();
 
@@ -54,6 +56,7 @@ namespace projekt_szkolenie_techiczne_1
             return false;
         }
 
+        //pobieranie wszystkich ksiązek użytkownika
         public List<JObject> GetUserBooks(int userID)
         {
             List<JObject> UserBooks = new List<JObject>();
@@ -62,8 +65,8 @@ namespace projekt_szkolenie_techiczne_1
             connection.Open();
 
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "SELECT user_ID, books.TITLE, books.AUTHOR, books.YEAR " +
-                          "FROM borrowedbooks INNER JOIN books ON books.BOOKID = borrowedbooks.BOOKID WHERE user_ID=@userID";
+            command.CommandText = "SELECT user_ID, books.TITLE, books.AUTHOR, books.YEAR, books.BOOKID " +
+                                  "FROM borrowedbooks INNER JOIN books ON books.BOOKID = borrowedbooks.BOOKID WHERE user_ID=@userID";
             command.Parameters.AddWithValue("@userID", userID);
             command.Connection = connection;
 
@@ -86,6 +89,7 @@ namespace projekt_szkolenie_techiczne_1
             return UserBooks;
         }
 
+        //pobieranie wszystkich książek
         public List<JObject> GetAllBook()
         {
             List<JObject> Books = new List<JObject>();
@@ -110,31 +114,55 @@ namespace projekt_szkolenie_techiczne_1
 
                     Books.Add(Book);
                 }
-                // JUZ TU JEST ZLY ID
+                
             }
 
             connection.Close();
             return Books;
         }
 
+        //wypozyczanie ksiazki
         public void BorrowBook(int bookID, int UserID)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
 
-            // Insert a new record into borrowedbooks
+            
             MySqlCommand insertCommand = new MySqlCommand();
             insertCommand.CommandText = "INSERT INTO borrowedbooks (BORROWDATE, RETURNDATE, user_ID, BOOKID) VALUES (@borrowDate, @returnDate, @userID, @bookID)";
             insertCommand.Parameters.AddWithValue("@borrowDate", DateTime.Now.ToString("yyyyMMdd"));
             insertCommand.Parameters.AddWithValue("@returnDate", DateTime.Now.AddDays(14).ToString("yyyyMMdd")); // assuming a 14-day borrow period
-            insertCommand.Parameters.AddWithValue("@userID", UserID); // Use the UserID property here
+            insertCommand.Parameters.AddWithValue("@userID", UserID); 
             insertCommand.Parameters.AddWithValue("@bookID", bookID);
             insertCommand.Connection = connection;
             insertCommand.ExecuteNonQuery();
 
-            // Update the book's IsBorrowed status
+            
             MySqlCommand updateCommand = new MySqlCommand();
             updateCommand.CommandText = "UPDATE books SET IsBorrowed = 1 WHERE BOOKID = @bookID";
+            updateCommand.Parameters.AddWithValue("@bookID", bookID);
+            updateCommand.Connection = connection;
+            updateCommand.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        //zwrot ksiazki
+        public void ReturnBook(int bookID, int UserID)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            
+            MySqlCommand deleteCommand = new MySqlCommand();
+            deleteCommand.CommandText = "DELETE FROM borrowedbooks WHERE BOOKID = @bookID AND user_ID = @userID";
+            deleteCommand.Parameters.AddWithValue("@bookID", bookID);
+            deleteCommand.Parameters.AddWithValue("@userID", UserID);
+            deleteCommand.Connection = connection;
+            deleteCommand.ExecuteNonQuery();
+
+            
+            MySqlCommand updateCommand = new MySqlCommand();
+            updateCommand.CommandText = "UPDATE books SET IsBorrowed = 0 WHERE BOOKID = @bookID";
             updateCommand.Parameters.AddWithValue("@bookID", bookID);
             updateCommand.Connection = connection;
             updateCommand.ExecuteNonQuery();

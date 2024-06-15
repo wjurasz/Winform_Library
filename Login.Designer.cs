@@ -73,6 +73,7 @@
             // userLogin
             // 
             userLogin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            userLogin.BackColor = SystemColors.InactiveBorder;
             userLogin.Location = new Point(524, 205);
             userLogin.Name = "userLogin";
             userLogin.Size = new Size(194, 27);
@@ -93,6 +94,7 @@
             // 
             // userPassword
             // 
+            userPassword.BackColor = SystemColors.InactiveBorder;
             userPassword.Location = new Point(524, 297);
             userPassword.Name = "userPassword";
             userPassword.PasswordChar = 'ඞ';
